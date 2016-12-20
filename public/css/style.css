@@ -1,0 +1,50 @@
+      * { 
+      	margin: 0; 
+      	padding: 0; 
+      	box-sizing: border-box; 
+      }
+
+      body { 
+      	font: 14px Helvetica, Arial; 
+      }
+
+      form { 
+      	background: #FFAB69; 
+      	padding: 3px; 
+      	position: fixed; 
+      	bottom: 0; 
+      	width: 100%; 
+      }
+
+      form input { 
+      	border: 0; 
+      	padding: 20px; 
+      	width: 90%; 
+      	margin-right: .5%; 
+      }
+
+      form button { 
+      	width: 9%; 
+      	background: #FFAB69;
+      	border: none; 
+      	padding: 8px; 
+            font-size: 14px;
+      }
+
+      #messages { 
+      	list-style-type: none; 
+      	margin: 0; 
+      	padding: 0; 
+      }
+
+      #messages li { 
+      	padding: 15px 10px; 
+      }
+
+      #messages li:nth-child(odd) { 
+      	background: rgba(30,0,100,0.5); 
+      }
+
+      #messages li:nth-child(even) {
+      	background: rgba(225, 225, 225, 0.5);
+      }
