@@ -21,6 +21,14 @@ var io = require('socket.io')(http);
 //         parser: SerialPort.parsers.readline("\n")
 // });
 
+// Find all chats.
+var Chats = require('./models/chat');
+
+Chats.find(function(err, chat_data) {
+    if (err) return console.error(err);
+    console.dir(chat_data);
+});
+
 
 //each run, if doesn't exsist, database created
 mongoose.connect('mongodb://localhost/final-project-LeylaNovini-db');
@@ -45,37 +53,37 @@ io.on('connection', function(socket){
 });
 
 //serial port with socket
-// port.on('open', function() {
+port.on('open', function() {
 
-// // in case of an error
-// port.on('error', function(err) {
-//   console.log('Error: ', err.message);
-// })
-// 	io.sockets.on('connection', function (socket) {
-// 	    console.log('Socket connected');
-// 	    //connecting port into socket
-// 	    port.on('data', function(data, msg, str) {
-// 	    var res = data.split(",");
-// 	    console.log(res[0]);
-// 	    		socket.emit('toScreen', { hello: data});
-// 	    		socket.emit('chat message', str);
-// 		      // console.log(err);
-// 		      // console.log(reply);
-// 		      // socket.emit('chat message', reply);
-// 	    });
+// in case of an error
+port.on('error', function(err) {
+  console.log('Error: ', err.message);
+})
+	io.sockets.on('connection', function (socket) {
+	    console.log('Socket connected');
+	    //connecting port into socket
+	    port.on('data', function(data, msg, str) {
+	    var res = data.split(",");
+	    console.log(res[0]);
+	    		socket.emit('toScreen', { hello: data});
+	    		socket.emit('chat message', str);
+		      // console.log(err);
+		      // console.log(reply);
+		      // socket.emit('chat message', reply);
+	    });
 
 
-// 	  socket.on('chat', function (data){
-// 	    console.log("socket connected");
-// 	  });
+	  socket.on('chat', function (data){
+	    console.log("socket connected");
+	  });
 
-// 	});
-// });
+	});
+});
 
 
 //end of socket code
-http.listen(8000, function(){
-  console.log('listening on *:8000');
+http.listen(8080, function(){
+  console.log('listening on localhost:8080');
 });
 
 
@@ -94,6 +102,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/chats', chats);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

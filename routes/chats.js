@@ -6,7 +6,7 @@ var Student = require('../models/chat');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  // res.send('This is Students endpoint');
+  res.send('Chat endpoint');
   Chat.find({}, function(err, documents) {
   	if(err){
   		res.json('Nothing in chat space');
@@ -21,9 +21,7 @@ router.post('/', function(req, res, next) {
 	let data = req.body;
 	console.log(data);
 	let newMessage = data.message;
-	// let newStudent = new Student({
-	// 	name: newName
-	// });
+
 	newMessage.save(function(err){
 		if(err) {
 			console.log(err);
@@ -32,12 +30,12 @@ router.post('/', function(req, res, next) {
 			res.json('Added the message');
 		}
 	});
-	res.json('This is the route for adding students');
+	res.json('Adding messages');
 
 });
 
-router.post('/delete/:id', function(req, res, next){
-	res.json('This is for deleting a message');
-});
+// router.post('/delete/:id', function(req, res, next){
+// 	res.json('This is for deleting a message');
+// });
 
 module.exports = router;

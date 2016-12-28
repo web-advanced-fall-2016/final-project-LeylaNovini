@@ -9,7 +9,7 @@
       }
 
       form { 
-      	background: #FFAB69; 
+      	background: #ADD5F7; 
       	padding: 3px; 
       	position: fixed; 
       	bottom: 0; 
@@ -25,10 +25,19 @@
 
       form button { 
       	width: 9%; 
-      	background: #FFAB69;
+      	background: #4E7AC7;
       	border: none; 
-      	padding: 8px; 
+      	padding: 10px; 
             font-size: 14px;
+            color: #FFFFFF;
+      }
+
+      h1{
+            font-family: 'Signika', sans-serif;
+            padding: 10px 0px 10px 0px;
+            color: #FFFFFF;
+            text-align: center;
+            background: #35478C;
       }
 
       #messages { 
@@ -42,9 +51,16 @@
       }
 
       #messages li:nth-child(odd) { 
-      	background: rgba(30,0,100,0.5); 
+      	background: rgba(127, 178, 240,0.5);
+            border-radius: 20px;
+            margin: 2px;
+            padding-left: 12px;
       }
 
       #messages li:nth-child(even) {
       	background: rgba(225, 225, 225, 0.5);
+            text-align: right;
+            border-radius: 20px;
+            margin: 2px;
+            padding-right: 12px;
       }
