@@ -15,11 +15,11 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 //serial port
-// var SerialPort = require('serialport');
-// var port = new SerialPort('/dev/ttyACM0', {
-//         baudRate: 9600,
-//         parser: SerialPort.parsers.readline("\n")
-// });
+var SerialPort = require('serialport');
+var port = new SerialPort('/dev/ttyACM0', {
+        baudRate: 9600,
+        parser: SerialPort.parsers.readline("\n")
+});
 
 // Find all chats.
 var Chats = require('./models/chat');
